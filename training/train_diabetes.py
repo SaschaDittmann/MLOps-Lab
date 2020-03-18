@@ -14,14 +14,20 @@ from typing import Tuple, List
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from azureml.core import Workspace, Datastore, Dataset
 from azureml.core.run import Run
 from azureml.core.model import Model
 
 run = Run.get_context()
+exp = run.experiment
+ws = run.experiment.workspace
 
 print("Loading training data...")
 # https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html
-diabetes = pd.read_csv('./workspaceblobstore/diabetes/diabetes.csv')
+datastore = ws.get_default_datastore()
+datastore_paths = [(datastore, 'diabetes/diabetes.csv')]
+traindata = Dataset.Tabular.from_delimited_files(path=datastore_paths)
+diabetes = traindata.to_pandas_dataframe()
 print("Columns:", diabetes.columns) 
 print("Diabetes data set dimensions : {}".format(diabetes.shape))
 
