@@ -1,3 +1,7 @@
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![](https://ga4gh.azurewebsites.net/api?repo=MLOps-Lab)](https://github.com/SaschaDittmann/gaforgithub)
+
 # MLOps on Azure
 This repository contains sample code, which is used for a [MLOps](https://en.wikipedia.org/wiki/MLOps) Workshop.
 
